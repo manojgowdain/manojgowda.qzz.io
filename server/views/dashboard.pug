@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1 Admin Dashboard
+  a(href="/admin/new") New Blog
+
+  table
+    thead
+      tr
+        th ID
+        th Title
+        th Image
+        th Actions
+    tbody
+      each blog in blogs
+        tr
+          td #{blog.id}
+          td #{blog.title}
+          td
+            if blog.imageUrl
+              img(src=blog.imageUrl width="100")
+            else
+              span No Image
+          td
+            a(href=`/admin/edit/${blog.id}`) Edit
+            form(action=`/admin/delete/${blog.id}` method="POST" style="display:inline")
+              button(type="submit") Delete

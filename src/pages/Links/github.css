@@ -1,0 +1,416 @@
+/* GitHub Profile Styles */
+.github-profile {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.github-container {
+  max-width: 1280px;
+  padding: 2rem 1rem;
+}
+
+.redirect-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(22, 27, 34, 0.95);
+  color: #c9d1d9;
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #58a6ff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.profile-image-container {
+  flex: 0 0 auto;
+}
+
+.profile-image {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid #30363d;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #e6edf3;
+}
+
+.profile-username {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #8b949e;
+  margin: 0 0 1rem;
+}
+
+.profile-bio {
+  color: #c9d1d9;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.profile-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metadata-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #8b949e;
+}
+
+.metadata-icon {
+  font-size: 1rem;
+}
+
+.profile-metadata a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.profile-metadata a:hover {
+  text-decoration: underline;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Stats Overview */
+.stats-overview {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat-count {
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.stat-label {
+  color: #8b949e;
+}
+
+/* Contribution Section */
+.contribution-section {
+  background-color: #161b22;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid #30363d;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #e6edf3;
+}
+
+.contribution-calendar {
+  position: relative;
+}
+
+.calendar-months {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+.calendar-days {
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 4rem);
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 2px;
+  margin-left: 2rem;
+}
+
+.contribution-cell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.contribution-none {
+  background-color: #161b22;
+}
+
+.contribution-low {
+  background-color: #0e4429;
+}
+
+.contribution-medium {
+  background-color: #006d32;
+}
+
+.contribution-high {
+  background-color: #26a641;
+}
+
+.contribution-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+.legend-cells {
+  display: flex;
+  gap: 2px;
+}
+
+/* Activity Overview */
+.activity-overview {
+  background-color: #161b22;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid #30363d;
+}
+
+.activity-metrics {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #e6edf3;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #8b949e;
+}
+
+.activity-list {
+  border-top: 1px solid #30363d;
+  padding-top: 1rem;
+}
+
+.activity-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: #e6edf3;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #21262d;
+}
+
+.activity-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.activity-commit {
+  background-color: #238636;
+}
+
+.activity-issue {
+  background-color: #da3633;
+}
+
+.activity-pull_request {
+  background-color: #8957e5;
+}
+
+.activity-details {
+  flex: 1;
+}
+
+.activity-text {
+  margin: 0 0 0.25rem;
+  color: #c9d1d9;
+}
+
+.activity-text strong {
+  color: #58a6ff;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+/* Repositories Section */
+.repositories-section {
+  margin-bottom: 2rem;
+}
+
+.repositories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.repository-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.repository-name {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.repository-name a {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.repository-name a:hover {
+  text-decoration: underline;
+}
+
+.repository-description {
+  flex: 1;
+  margin: 0 0 1rem;
+  color: #8b949e;
+  font-size: 0.875rem;
+}
+
+.repository-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.repository-language {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #8b949e;
+}
+
+.language-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #f1e05a; /* JavaScript color */
+}
+
+.repository-stars {
+  color: #8b949e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .profile-metadata {
+    justify-content: center;
+  }
+  
+  .profile-actions {
+    justify-content: center;
+  }
+  
+  .contribution-grid {
+    grid-template-columns: repeat(30, 1fr);
+  }
+  
+  .repositories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

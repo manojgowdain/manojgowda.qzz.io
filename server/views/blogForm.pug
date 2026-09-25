@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= blog.id ? "Edit Blog" : "New Blog"
+  form(action=action method=method)
+    label(for="title") Title
+    input(type="text" name="title" id="title" required value=blog.title)
+    br
+    label(for="content") Content
+    textarea(name="content" id="content" required)= blog.content
+    br
+    label(for="imageUrl") Image URL
+    input(type="text" name="imageUrl" id="imageUrl" value=blog.imageUrl)
+    br
+    button(type="submit") Submit
