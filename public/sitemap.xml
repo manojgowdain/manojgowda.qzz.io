@@ -3,64 +3,64 @@
 
   <!-- Internal Pages -->
   <url>
-    <loc>https://manojgowda.in/</loc>
+    <loc>https://manojgowda.qzz.io/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/skills</loc>
+    <loc>https://manojgowda.qzz.io/skills</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/experience</loc>
+    <loc>https://manojgowda.qzz.io/experience</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/projects</loc>
+    <loc>https://manojgowda.qzz.io/projects</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/contact</loc>
+    <loc>https://manojgowda.qzz.io/contact</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/blogs</loc>
+    <loc>https://manojgowda.qzz.io/blogs</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/blogs/:id</loc>
+    <loc>https://manojgowda.qzz.io/blogs/:id</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/resume</loc>
+    <loc>https://manojgowda.qzz.io/resume</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
    <url>
-    <loc>https://manojgowda.in/mbqueue</loc>
+    <loc>https://manojgowda.qzz.io/mbqueue</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
 
   <!-- External Link Pages -->
   <url>
-    <loc>https://manojgowda.in/github</loc>
+    <loc>https://manojgowda.qzz.io/github</loc>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/linkedin</loc>
+    <loc>https://manojgowda.qzz.io/linkedin</loc>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>https://manojgowda.in/instagram</loc>
+    <loc>https://manojgowda.qzz.io/instagram</loc>
     <priority>0.6</priority>
     <changefreq>yearly</changefreq>
   </url>

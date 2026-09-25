@@ -48,11 +48,11 @@ export default function Whatsapp() {
       IoT Engineer WhatsApp, DevOps Engineer WhatsApp, Fintech Developer WhatsApp,
       Software Engineer WhatsApp, React Developer WhatsApp, Node.js WhatsApp,
       MongoDB WhatsApp, Cloud Engineer WhatsApp, Bangalore WhatsApp Developer,
-      Bengaluru WhatsApp Tech, manojgowda.in WhatsApp
+      Bengaluru WhatsApp Tech, manojgowda.qzz.io WhatsApp
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/whatsapp" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/whatsapp" />
 
         {/* Open Graph (for WhatsApp/LinkedIn/FB sharing) */}
         <meta property="og:title" content="Manoj Gowda | WhatsApp Contact" />
@@ -60,7 +60,7 @@ export default function Whatsapp() {
           property="og:description"
           content="Connect with Manoj Gowda instantly on WhatsApp – Full Stack Developer & DevOps Engineer specializing in MERN, IoT, fintech, and cloud solutions."
         />
-        <meta property="og:url" content="https://manojgowda.in/whatsapp" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/whatsapp" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card (for X/Twitter preview) */}

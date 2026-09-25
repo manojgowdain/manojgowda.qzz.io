@@ -42,7 +42,7 @@ const BlogDetail = () => {
 
   const description = blog.content.length > 160 ? blog.content.slice(0, 157) + "..." : blog.content;
   const keywords = blog.title.split(" ").concat(blog.content.split(" ").slice(0, 10)).join(", ");
-  const canonicalUrl = `https://manojgowda.in/blogs/${blog._id}`;
+  const canonicalUrl = `https://manojgowda.qzz.io/blogs/${blog._id}`;
 
   return (
     <div className="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">

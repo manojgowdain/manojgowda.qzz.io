@@ -100,11 +100,11 @@ const Skills = () => {
       Manoj Gowda skills, Manoj Gowda expertise, full stack developer skills, MERN stack skills,
       JavaScript developer, React developer, Node.js developer, MongoDB, Express.js, PostgreSQL,
       DevOps skills, Docker, AWS, npm packages mbqueue, npm packages cobit, software engineer,
-      IoT developer, fintech developer, cloud solutions, Bengaluru developer, manojgowda.in
+      IoT developer, fintech developer, cloud solutions, Bengaluru developer, manojgowda.qzz.io
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/skills" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/skills" />
 
         {/* Open Graph */}
         <meta
@@ -115,7 +115,7 @@ const Skills = () => {
           property="og:description"
           content="Discover Manoj Gowda's technical skills across frontend, backend, databases, DevOps, and cloud solutions. Includes MERN stack, React, Node.js, Docker, AWS, and npm packages like mbqueue, toonkit, and fonotify."
         />
-        <meta property="og:url" content="https://manojgowda.in/skills" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/skills" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card */}

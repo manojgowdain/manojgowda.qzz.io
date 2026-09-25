@@ -84,7 +84,7 @@ const projects = [
       "Developer-focused Web3 testing ecosystem combining web app, API services, and Telegram bot interface. Generates dummy crypto wallet addresses for Bitcoin, Ethereum, and other blockchains for testing dApps, APIs, and blockchain integrations. Designed as a lightweight developer SDK-style utility for multi-platform usage.",
     image:
       "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg",
-    liveUrl: "https://walletexpress.manojgowda.in",
+    liveUrl: "https://walletexpress.manojgowda.qzz.io",
     technologies: ["React", "Express.js", "JavaScript", "Web3", "Bitcoin", "Ethereum", "Telegram Bot"],
     status: "Live",
     type: "Web3 Dev Tool",
@@ -114,7 +114,7 @@ const projectSchema = {
     "name": p.name,
     "applicationCategory": p.type,
     "operatingSystem": p.type.includes("Android") ? "Android" : "Web",
-    "url": p.liveUrl || "https://www.manojgowda.in/projects",
+    "url": p.liveUrl || "https://manojgowda.qzz.io/projects",
     "description": p.description,
     "creator": {
       "@type": "Person",
@@ -157,7 +157,7 @@ const Projects = () => {
 
         <link
           rel="canonical"
-          href="https://www.manojgowda.in/projects"
+          href="https://manojgowda.qzz.io/projects"
         />
 
         {/* JSON-LD Structured Data */}

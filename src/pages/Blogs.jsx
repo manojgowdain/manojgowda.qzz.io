@@ -37,7 +37,7 @@ const Blogs = () => {
         />
         <meta name="keywords" content="Manoj Gowda blogs, web development, MERN stack, React, Node.js, DevOps, IoT" />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/blogs" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/blogs" />
       </Helmet>
 
       <div className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-6">

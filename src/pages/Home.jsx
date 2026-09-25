@@ -25,11 +25,11 @@ const Home = () => {
           content="
       Manoj Gowda, Manoj Gowda developer, Full Stack Developer Bengaluru, MERN stack engineer, 
       DevOps Engineer India, IoT developer, fintech developer, React.js developer, Node.js developer, 
-      MongoDB, Express.js, software engineer portfolio, manojgowda.in, portfolio, projects, hire Manoj Gowda, cloud engineer
+      MongoDB, Express.js, software engineer portfolio, manojgowda.qzz.io, portfolio, projects, hire Manoj Gowda, cloud engineer
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://www.manojgowda.in" />
+        <link rel="canonical" href="https://manojgowda.qzz.io" />
 
         {/* Open Graph (for LinkedIn/FB/WhatsApp sharing) */}
         <meta
@@ -40,7 +40,7 @@ const Home = () => {
           property="og:description"
           content="Explore the portfolio of Manoj Gowda — a Full Stack Developer & DevOps Engineer specializing in MERN stack, IoT, fintech, and cloud solutions."
         />
-        <meta property="og:url" content="https://www.manojgowda.in" />
+        <meta property="og:url" content="https://manojgowda.qzz.io" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card (for X/Twitter preview) */}
@@ -99,7 +99,7 @@ const Home = () => {
                   Get In Touch
                 </a>
                 <a
-                  href="https://www.manojgowda.in"
+                  href="https://manojgowda.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"

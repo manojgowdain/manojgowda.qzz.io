@@ -170,7 +170,7 @@ const experienceSchema = {
   "@type": "Person",
   "name": "Manoj Gowda",
   "jobTitle": "Full Stack & DevOps Engineer",
-  "url": "https://www.manojgowda.in",
+  "url": "https://manojgowda.qzz.io",
   "worksFor": experiences.map((e) => ({
     "@type": "Organization",
     "name": e.company,
@@ -211,7 +211,7 @@ const Experience = () => {
 
         <link
           rel="canonical"
-          href="https://manojgowda.in/experience"
+          href="https://manojgowda.qzz.io/experience"
         />
 
         {/* Structured Data */}

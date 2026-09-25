@@ -42,7 +42,7 @@ export default function Resume() {
           content="Manoj Gowda resume, Manoj Gowda CV, Full Stack Developer resume, MERN stack resume, React developer resume, Node.js resume, Bangalore developer resume, Bengaluru software engineer CV, cloud engineer resume, fintech developer CV"
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/resume" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/resume" />
 
         {/* Open Graph (Facebook, LinkedIn, WhatsApp) */}
         <meta property="og:title" content="Manoj Gowda | Resume Download" />
@@ -50,9 +50,9 @@ export default function Resume() {
           property="og:description"
           content="Get Manoj Gowda's resume – Team Lead and Software Engineer with 2.5+ years of experience in full-stack development, DevOps, IoT platforms, and cloud infrastructure."
         />
-        <meta property="og:url" content="https://manojgowda.in/resume" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/resume" />
         <meta property="og:type" content="article" />
-        <meta property="og:file" content="https://manojgowda.in/manojgowda.in.pdf" />
+        <meta property="og:file" content="https://manojgowda.qzz.io/manojgowda.in.pdf" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary" />

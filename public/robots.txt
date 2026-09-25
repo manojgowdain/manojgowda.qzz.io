@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://manojgowda.in/sitemap.xml
+Sitemap: https://manojgowda.qzz.io/sitemap.xml

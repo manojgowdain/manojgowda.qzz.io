@@ -48,11 +48,11 @@ export default function Linkedin() {
       IoT Developer LinkedIn, DevOps Engineer LinkedIn, Fintech Developer LinkedIn,
       Software Engineer LinkedIn, React LinkedIn, Node.js LinkedIn,
       MongoDB LinkedIn, Cloud Engineer LinkedIn, Bangalore LinkedIn Developer,
-      Bengaluru LinkedIn Tech, manojgowda.in LinkedIn
+      Bengaluru LinkedIn Tech, manojgowda.qzz.io LinkedIn
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/linkedin" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/linkedin" />
 
         {/* Open Graph (for LinkedIn/FB/WhatsApp sharing) */}
         <meta property="og:title" content="Manoj Gowda | LinkedIn Profile" />
@@ -60,7 +60,7 @@ export default function Linkedin() {
           property="og:description"
           content="Discover Manoj Gowda on LinkedIn – MERN stack developer, IoT enthusiast, fintech software engineer, and DevOps specialist."
         />
-        <meta property="og:url" content="https://manojgowda.in/linkedin" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/linkedin" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card (for X/Twitter preview) */}

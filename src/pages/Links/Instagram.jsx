@@ -48,11 +48,11 @@ export default function Instagram() {
       IoT Engineer Instagram, DevOps Engineer Instagram, Fintech Developer Instagram,
       Software Engineer Instagram, React Developer Instagram, Node.js Instagram,
       MongoDB Instagram, Cloud Engineer Instagram, Bangalore Instagram Developer,
-      Bengaluru Instagram Tech, manojgowda.in Instagram
+      Bengaluru Instagram Tech, manojgowda.qzz.io Instagram
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/instagram" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/instagram" />
 
         {/* Open Graph (for LinkedIn/FB/WhatsApp sharing) */}
         <meta property="og:title" content="Manoj Gowda | Instagram Profile" />
@@ -60,7 +60,7 @@ export default function Instagram() {
           property="og:description"
           content="Discover Instagram updates from Manoj Gowda – MERN stack developer, IoT enthusiast, fintech software engineer, and DevOps specialist."
         />
-        <meta property="og:url" content="https://manojgowda.in/instagram" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/instagram" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card (for better preview on X/Twitter) */}

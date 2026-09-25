@@ -28,7 +28,7 @@ const Contact = () => {
     try {
       const authString = btoa(`${email}:${name}|${subject}|${message}`);
       const response = await axios.get(
-        "https://api-email.manojgowda.in/contact",
+        "https://api-email.manojgowda.qzz.io/contact",
         {
           headers: { Authorization: `Basic ${authString}` },
         }
@@ -77,7 +77,7 @@ const Contact = () => {
       icon: "🌐",
       title: "Website",
       value: "manojgowda.in",
-      link: "https://www.manojgowda.in",
+      link: "https://manojgowda.in",
     },
     {
       icon: "💼",
@@ -108,7 +108,7 @@ const Contact = () => {
         <meta
           name="keywords"
           content="
-      Manoj Gowda, Manoj Gowda contact, Contact Manoj Gowda, Manoj Gowda email, manojgowda.in,
+      Manoj Gowda, Manoj Gowda contact, Contact Manoj Gowda, Manoj Gowda email, manojgowda.qzz.io,
       Manoj Gowda developer, Manoj Gowda Full Stack Developer, Manoj Gowda DevOps Engineer,
       MERN stack developer contact, React developer contact, Node.js developer contact,
       Express.js developer, MongoDB developer, JavaScript engineer contact, Software engineer Bengaluru,
@@ -118,7 +118,7 @@ const Contact = () => {
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/contact" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/contact" />
         <meta
           property="og:title"
           content="Contact Manoj Gowda | Full Stack Developer & DevOps Engineer"
@@ -127,7 +127,7 @@ const Contact = () => {
           property="og:description"
           content="Reach out to Manoj Gowda – MERN stack developer, DevOps engineer, and IoT enthusiast from Bengaluru, India. Contact for collaborations, projects, and professional inquiries."
         />
-        <meta property="og:url" content="https://manojgowda.in/contact" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/contact" />
         <meta property="og:type" content="website" />
       </Helmet>
 

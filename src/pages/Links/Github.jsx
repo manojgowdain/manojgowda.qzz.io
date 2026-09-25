@@ -49,11 +49,11 @@ const Github = () => {
       Manoj Gowda developer GitHub, Full Stack Developer GitHub, MERN stack GitHub,
       IoT developer GitHub, fintech developer GitHub, DevOps engineer GitHub,
       JavaScript GitHub, React GitHub, Node.js GitHub, MongoDB GitHub,
-      Bangalore GitHub developer, Bengaluru GitHub portfolio, manojgowda.in GitHub
+      Bangalore GitHub developer, Bengaluru GitHub portfolio, manojgowda.qzz.io GitHub
     "
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/github" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/github" />
 
         {/* Open Graph (for LinkedIn/FB/WhatsApp sharing) */}
         <meta property="og:title" content="Manoj Gowda | GitHub Profile" />
@@ -61,7 +61,7 @@ const Github = () => {
           property="og:description"
           content="Discover projects by Manoj Gowda – Full Stack Developer & DevOps Engineer specializing in MERN, IoT, fintech, and cloud solutions."
         />
-        <meta property="og:url" content="https://manojgowda.in/github" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/github" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card (for better preview on X/Twitter) */}

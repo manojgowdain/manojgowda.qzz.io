@@ -14,7 +14,7 @@ const Mbqueue = () => {
           content="mbqueue, Node.js job queue, MongoDB queue, message queue, background jobs, task processing, distributed workers, job retry, npm package mbqueue"
         />
         <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.in/mbqueue" />
+        <link rel="canonical" href="https://manojgowda.qzz.io/mbqueue" />
 
         {/* Open Graph */}
         <meta property="og:title" content="mbqueue | MongoDB-backed Job Queue for Node.js" />
@@ -22,7 +22,7 @@ const Mbqueue = () => {
           property="og:description"
           content="mbqueue is a scalable, MongoDB-backed job queue for Node.js. Supports batching, retries, parallel workers, and distributed processing."
         />
-        <meta property="og:url" content="https://manojgowda.in/mbqueue" />
+        <meta property="og:url" content="https://manojgowda.qzz.io/mbqueue" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card */}
