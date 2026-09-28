@@ -1,16 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
+
+const EMAIL_API = "https://email-api.manojgowda.qzz.io";
+const PROVISIONING_KEY = "asd4as5s4d5a4d5a45d4a54d5a65d45";
+const API_KEY = "sd4a4da4d64as6d46sa46d46a46d64ad";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
+
+  const [tempToken, setTempToken] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // { type: 'success'|'error'|'warning', text: '...' }
+  const [isGettingToken, setIsGettingToken] = useState(true);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Generate temporary token when contact page loads
+  useEffect(() => {
+    const generateToken = async () => {
+      try {
+        setIsGettingToken(true);
+
+        const response = await axios.post(
+          `${EMAIL_API}/auth/token`,
+          {},
+          {
+            headers: {
+              "X-Provisioning-Key": PROVISIONING_KEY,
+            },
+          }
+        );
+
+        if (response.data.success && response.data.token) {
+          setTempToken(response.data.token);
+
+          console.log("Temporary email token generated");
+          console.log("Expires:", response.data.expires_at);
+        } else {
+          throw new Error("Failed to generate temporary token");
+        }
+      } catch (error) {
+        console.error("Token generation failed:", error);
+
+        setSubmitStatus({
+          type: "error",
+          text: "Unable to initialize contact form. Please refresh the page.",
+        });
+      } finally {
+        setIsGettingToken(false);
+      }
+    };
+
+    generateToken();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -19,31 +66,91 @@ const Contact = () => {
     });
   };
 
+  const generateNewToken = async () => {
+    try {
+      const response = await axios.post(
+        `${EMAIL_API}/auth/token`,
+        {},
+        {
+          headers: {
+            "X-Provisioning-Key": PROVISIONING_KEY,
+          },
+        }
+      );
+
+      if (response.data.success && response.data.token) {
+        setTempToken(response.data.token);
+      }
+    } catch (error) {
+      console.error("Failed to refresh token:", error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    const { name, email, subject, message } = formData;
+    if (!tempToken) {
+      setSubmitStatus({
+        type: "error",
+        text: "Contact form is not ready yet. Please refresh the page.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const { name, email, phone, subject, message } = formData;
 
     try {
-      const authString = btoa(`${email}:${name}|${subject}|${message}`);
-      const response = await axios.get(
-        "https://api-email.manojgowda.qzz.io/contact",
+      const response = await axios.post(
+        `${EMAIL_API}/email/send`,
         {
-          headers: { Authorization: `Basic ${authString}` },
+          email: {
+            from: "Manoj <manojgowda@in.iotkit.in>",
+            to: [email, "mail@manojgowda.in"],
+            subject: subject,
+            html: `
+              <h2>New Contact Form Message</h2>
+
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Phone:</strong> ${phone}</p>
+              <p><strong>Subject:</strong> ${subject}</p>
+
+              <hr />
+
+              <h3>Message</h3>
+              <p>${message}</p>
+            `,
+            reply_to: email,
+          },
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "X-API-Key": API_KEY,
+            Authorization: `Bearer ${tempToken}`,
+          },
         }
       );
 
       if (response.data.success) {
-        setSubmitStatus({ type: "success", text: response.data.message });
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else if (
-        response.data.message?.toLowerCase().includes("too many requests")
-      ) {
         setSubmitStatus({
-          type: "warning",
-          text: "You already submitted, please try after some time.",
+          type: "success",
+          text: "Message sent successfully!",
         });
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+
+        // Generate fresh token after successful submission
+        generateNewToken();
       } else {
         setSubmitStatus({
           type: "error",
@@ -53,82 +160,47 @@ const Contact = () => {
         });
       }
     } catch (error) {
-      console.error(error);
-      setSubmitStatus({
-        type: "error",
-        text:
-          error.response?.data?.message ||
-          "Something went wrong. Please try again later.",
-      });
+      console.error("Email send error:", error);
+
+      if (error.response?.status === 401) {
+        setSubmitStatus({
+          type: "error",
+          text: "Your contact session expired. Please refresh the page.",
+        });
+      } else if (error.response?.status === 429) {
+        setSubmitStatus({
+          type: "warning",
+          text: "Too many requests. Please try again later.",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          text:
+            error.response?.data?.message ||
+            "Something went wrong. Please try again later.",
+        });
+      }
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
+
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
     }
   };
 
-  const contactInfo = [
-    {
-      icon: "📧",
-      title: "Email",
-      value: "mail@manojgowda.in",
-      link: "mailto:mail@manojgowda.in",
-    },
-    {
-      icon: "🌐",
-      title: "Website",
-      value: "manojgowda.in",
-      link: "https://manojgowda.in",
-    },
-    {
-      icon: "💼",
-      title: "LinkedIn",
-      value: "manojgowdain",
-      link: "https://linkedin.com/in/manojgowdain",
-    },
-    {
-      icon: "⚡",
-      title: "GitHub",
-      value: "manojgowdain",
-      link: "https://github.com/manojgowdain",
-    },
-  ];
-
   return (
     <div className="section">
-      {/* SEO */}
       <Helmet>
         <title>
           Contact Manoj Gowda | Full Stack Developer, MERN Specialist & DevOps
           Engineer
         </title>
+
         <meta
           name="description"
-          content="Get in touch with Manoj Gowda – Full Stack Developer & DevOps Engineer from Bengaluru, India. Reach out for collaborations, IoT solutions, MERN stack projects, fintech applications, cloud deployments, and software development inquiries."
+          content="Get in touch with Manoj Gowda – Full Stack Developer & DevOps Engineer."
         />
-        <meta
-          name="keywords"
-          content="
-      Manoj Gowda, Manoj Gowda contact, Contact Manoj Gowda, Manoj Gowda email, manojgowda.qzz.io,
-      Manoj Gowda developer, Manoj Gowda Full Stack Developer, Manoj Gowda DevOps Engineer,
-      MERN stack developer contact, React developer contact, Node.js developer contact,
-      Express.js developer, MongoDB developer, JavaScript engineer contact, Software engineer Bengaluru,
-      Software engineer India, Hire Manoj Gowda, Freelance developer Bengaluru, IoT developer contact,
-      Fintech developer contact, Cloud engineer Bengaluru, Portfolio contact Manoj Gowda,
-      Project collaboration Manoj Gowda, Connect with Manoj Gowda, Remote software engineer India
-    "
-        />
-        <meta name="author" content="Manoj Gowda" />
-        <link rel="canonical" href="https://manojgowda.qzz.io/contact" />
-        <meta
-          property="og:title"
-          content="Contact Manoj Gowda | Full Stack Developer & DevOps Engineer"
-        />
-        <meta
-          property="og:description"
-          content="Reach out to Manoj Gowda – MERN stack developer, DevOps engineer, and IoT enthusiast from Bengaluru, India. Contact for collaborations, projects, and professional inquiries."
-        />
-        <meta property="og:url" content="https://manojgowda.qzz.io/contact" />
-        <meta property="og:type" content="website" />
       </Helmet>
 
       <div className="container">
@@ -137,59 +209,30 @@ const Contact = () => {
             <h1 className="section-title">
               📫 <span className="gradient-text">Get In Touch</span>
             </h1>
+
             <p className="section-subtitle">
               Let's discuss your next project or collaboration opportunity
             </p>
           </div>
 
           <div className="contact-grid grid grid-2">
-            {/* Contact Info */}
+            {/* Contact information */}
             <div className="contact-info-section">
               <div className="card">
                 <h3 className="card-title">Let's Connect</h3>
+
                 <p className="contact-intro">
                   I'm always interested in new opportunities, interesting
-                  projects, and great conversations. Whether you have a question
-                  or just want to say hello, feel free to reach out!
+                  projects, and great conversations.
                 </p>
-
-                <div className="contact-methods">
-                  {contactInfo.map((info, index) => (
-                    <a
-                      key={index}
-                      href={info.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="contact-method"
-                    >
-                      <div className="contact-icon">{info.icon}</div>
-                      <div className="contact-details">
-                        <h4>{info.title}</h4>
-                        <p>{info.value}</p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-
-                <div className="availability-status">
-                  <div className="status-indicator">
-                    <div className="status-dot available"></div>
-                    <span>Available for new projects</span>
-                  </div>
-                  <p className="status-description">
-                    Currently open to discussing new opportunities and
-                    collaborations.
-                  </p>
-                </div>
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Contact form */}
             <div className="contact-form-section">
               <div className="card">
                 <h3 className="card-title">Send Message</h3>
 
-                {/* Inline form messages */}
                 {submitStatus && (
                   <div
                     className={`form-message ${
@@ -205,8 +248,10 @@ const Contact = () => {
                 )}
 
                 <form onSubmit={handleSubmit} className="contact-form">
+                  {/* Name */}
                   <div className="form-group">
                     <label htmlFor="name">Name</label>
+
                     <input
                       type="text"
                       id="name"
@@ -215,11 +260,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="form-input"
+                      placeholder="Enter your name"
                     />
                   </div>
 
+                  {/* Email */}
                   <div className="form-group">
                     <label htmlFor="email">Email</label>
+
                     <input
                       type="email"
                       id="email"
@@ -228,11 +276,31 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="form-input"
+                      placeholder="Enter your email"
                     />
                   </div>
 
+                  {/* Phone */}
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone Number</label>
+
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="form-input"
+                      placeholder="+91 9876543210"
+                      pattern="[+]?[0-9\s-]{10,15}"
+                    />
+                  </div>
+
+                  {/* Subject */}
                   <div className="form-group">
                     <label htmlFor="subject">Subject</label>
+
                     <input
                       type="text"
                       id="subject"
@@ -241,11 +309,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="form-input"
+                      placeholder="Enter subject"
                     />
                   </div>
 
+                  {/* Message */}
                   <div className="form-group">
                     <label htmlFor="message">Message</label>
+
                     <textarea
                       id="message"
                       name="message"
@@ -254,17 +325,24 @@ const Contact = () => {
                       required
                       rows={5}
                       className="form-textarea"
+                      placeholder="Write your message..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={
+                      isSubmitting || isGettingToken || !tempToken
+                    }
                     className={`btn btn-primary submit-btn ${
                       isSubmitting ? "submitting" : ""
                     }`}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isGettingToken
+                      ? "Initializing..."
+                      : isSubmitting
+                      ? "Sending..."
+                      : "Send Message"}
                   </button>
                 </form>
               </div>
@@ -272,15 +350,9 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      {/* Example CSS for messages */}
-      <style>{`
-        .form-message.success { color: green; background: #e6f8e6; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
-        .form-message.error { color: red; background: #fde6e6; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
-        .form-message.warning { color: orange; background: #fff4e6; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
-      `}</style>
     </div>
   );
 };
 
 export default Contact;
+
